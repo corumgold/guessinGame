@@ -1,0 +1,41 @@
+/* Write your CSS code in this file */
+body {
+  background-color: #e9c46a;
+  font-family: "Edu VIC WA NT Beginner", cursive;
+}
+
+h1 {
+  color: #2a9d8f;
+}
+
+h2,
+p,
+button {
+  color: #264653;
+}
+
+ul {
+  margin: 0;
+  color: #e76f51;
+}
+
+input,
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 0;
+  font-family: inherit;
+  text-align: center;
+}
+
+button {
+  display: block;
+  background-color: #f4a261;
+  width: 90px;
+  margin: 0.5rem 0;
+}
+
+button:hover {
+  background-color: #e76f51;
+  cursor: pointer;
+}
