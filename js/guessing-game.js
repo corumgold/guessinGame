@@ -43,7 +43,7 @@ class Game {
   }
 
   playersGuessSubmission(num) {
-    if (num < 1 || num > 100 || typeof num !== "number") {
+    if (num < 1 || num > 100 || !num) {
       alert("That is an invalid guess.");
     } else {
       this.playersGuess = num;
@@ -160,7 +160,7 @@ newGameButton.addEventListener("click", () => {
 });
 
 submitButton.addEventListener("click", () => {
-  let guess = Number(guessInput.value);
+  let guess = parseInt(guessInput.value);
   game.playersGuessSubmission(guess);
 });
 
