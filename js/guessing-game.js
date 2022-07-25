@@ -83,3 +83,17 @@ class Game {
 function newGame() {
   return new Game();
 }
+
+let game = newGame();
+
+let newGameButton = document.getElementById("new-game");
+let submitButton = document.getElementById("submit-guess");
+let hintButton = document.getElementById("hint");
+
+newGameButton.addEventListener("click", () => {
+  game = newGame();
+});
+submitButton.addEventListener("click", () => {
+  let guess = Number(document.getElementById("guess-input").value);
+  game.playersGuessSubmission(guess);
+});
