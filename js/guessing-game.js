@@ -61,16 +61,25 @@ class Game {
     } else if (this.pastGuesses.length < 4) {
       this.pastGuesses.push(this.playersGuess);
       let diff = this.difference();
+      let updateText = "";
       switch (true) {
         case diff < 10:
-          return "You're burning up!";
+          updateText = "You're burning up!";
+          break;
         case diff < 25:
-          return "You're lukewarm.";
+          updateText = "You're lukewarm.";
+          break;
         case diff < 50:
-          return "You're a bit chilly.";
+          updateText = "You're a bit chilly.";
+          break;
         default:
-          return "You're ice cold!";
+          updateText = "You're ice cold!";
+          break;
       }
+      if (this.playersGuess > this.winningNumber) {
+        updateText += " Choose something smaller!";
+      } else updateText += " Choose something larger!";
+      return updateText;
     } else return "You Lose.";
   }
 
