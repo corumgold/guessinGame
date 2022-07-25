@@ -70,5 +70,16 @@ class Game {
       }
     } else return "You Lose.";
   }
+
+  provideHint() {
+    return shuffle([
+      this.winningNumber,
+      generateWinningNumber(),
+      generateWinningNumber(),
+    ]);
+  }
 }
 
+function newGame() {
+  return new Game();
+}
