@@ -1,12 +1,8 @@
-/* 
-
-Write your guess-game code here! Don't forget to look at the test specs as a guide. You can run the specs
-by running "testem".
-
-In this file, you will also include the event listeners that are needed to interact with your HTML file when
-a user clicks a button or adds a guess to the input field.
-
-*/
+let newGameButton = document.getElementById("new-game");
+let submitButton = document.getElementById("submit-guess");
+let hintButton = document.getElementById("hint");
+let guesses = document.getElementById("past-guesses");
+let notifier = document.getElementById("notifier");
 
 function generateWinningNumber() {
   return Math.floor(Math.random() * (100 - 1 + 1) + 1);
@@ -48,11 +44,10 @@ class Game {
       alert("That is an invalid guess.");
     } else {
       this.playersGuess = num;
-      let guesses = document.getElementById("past-guesses");
       let li = document.createElement("li");
       li.appendChild(document.createTextNode(`${this.playersGuess}`));
       guesses.appendChild(li);
-      document.getElementById("status").innerHTML = this.checkGuess();
+      notifier.innerHTML = this.checkGuess();
     }
   }
 
@@ -87,14 +82,12 @@ class Game {
 }
 
 function newGame() {
+  guesses.innerHTML = "";
+  notifier.innerHTML = "";
   return new Game();
 }
 
 let game = newGame();
-
-let newGameButton = document.getElementById("new-game");
-let submitButton = document.getElementById("submit-guess");
-let hintButton = document.getElementById("hint");
 
 newGameButton.addEventListener("click", () => {
   game = newGame();
