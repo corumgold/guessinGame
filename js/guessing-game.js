@@ -45,14 +45,14 @@ class Game {
 
   playersGuessSubmission(num) {
     if (num < 1 || num > 100 || typeof num !== "number") {
-      throw "That is an invalid guess.";
+      alert("That is an invalid guess.");
     } else {
       this.playersGuess = num;
       let guesses = document.getElementById("past-guesses");
       let li = document.createElement("li");
       li.appendChild(document.createTextNode(`${this.playersGuess}`));
       guesses.appendChild(li);
-      return this.checkGuess();
+      document.getElementById("status").innerHTML = this.checkGuess();
     }
   }
 
