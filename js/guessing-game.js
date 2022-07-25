@@ -27,3 +27,48 @@ function shuffle(array) {
   }
   return array;
 }
+
+class Game {
+  constructor(guess) {
+    this.playersGuess = null;
+    this.pastGuesses = [];
+    this.winningNumber = generateWinningNumber();
+  }
+
+  difference() {
+    return Math.abs(this.playersGuess - this.winningNumber);
+  }
+
+  isLower() {
+    return this.playersGuess < this.winningNumber;
+  }
+
+  playersGuessSubmission(num) {
+    if (num < 1 || num > 100 || typeof num !== "number") {
+      throw "That is an invalid guess.";
+    } else this.playersGuess = num;
+    return this.checkGuess();
+  }
+
+  checkGuess() {
+    if (this.pastGuesses.includes(this.playersGuess)) {
+      return "You have already guessed that number.";
+    } else if (this.playersGuess === this.winningNumber) {
+      return "You Win!";
+    } else if (this.pastGuesses.length < 4) {
+      this.pastGuesses.push(this.playersGuess);
+      let diff = this.difference();
+      switch (true) {
+        case diff < 10:
+          return "You're burning up!";
+        case diff < 25:
+          return "You're lukewarm.";
+        case diff < 50:
+          return "You're a bit chilly.";
+        default:
+          return "You're ice cold!";
+      }
+    } else return "You Lose.";
+  }
+}
+
