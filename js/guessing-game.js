@@ -118,6 +118,7 @@ function newGame() {
   }
   hints.innerHTML = game.provideHint();
   hintButton.style.display = "block";
+  guessInput.style.display = "block";
   submitButton.style.display = "block";
   notifier.style.display = "block";
   guessBlocks.style.color = "#264653";
@@ -125,6 +126,7 @@ function newGame() {
 }
 
 function winScreen() {
+  guessInput.value = "";
   guessBlocks.style.color = "#2a9d8f";
   document.getElementById("guess-1").innerHTML = "W";
   document.getElementById("guess-2").innerHTML = "I";
@@ -132,12 +134,13 @@ function winScreen() {
   document.getElementById("guess-4").innerHTML = ":";
   document.getElementById("guess-5").innerHTML = ")";
   hintButton.style.display = "none";
+  guessInput.style.display = "none";
   submitButton.style.display = "none";
   notifier.style.display = "none";
-  guess.style.display = "none";
 }
 
 function loseScreen() {
+  guessInput.value = "";
   guessBlocks.style.color = "#e76f51";
   document.getElementById("guess-1").innerHTML = "L";
   document.getElementById("guess-2").innerHTML = "O";
@@ -145,9 +148,9 @@ function loseScreen() {
   document.getElementById("guess-4").innerHTML = "E";
   document.getElementById("guess-5").innerHTML = "!";
   hintButton.style.display = "none";
+  guessInput.style.display = "none";
   submitButton.style.display = "none";
   notifier.style.display = "none";
-  guess.style.display = "none";
 }
 
 let game = newGame();
