@@ -4,6 +4,7 @@ let hintButton = document.getElementById("hint");
 let guesses = document.getElementById("past-guesses");
 let notifier = document.getElementById("notifier");
 let guessInput = document.getElementById("guess-input");
+let hints = document.getElementById("hints");
 
 function generateWinningNumber() {
   return Math.floor(Math.random() * (100 - 1 + 1) + 1);
@@ -88,14 +89,16 @@ class Game {
       this.winningNumber,
       generateWinningNumber(),
       generateWinningNumber(),
-    ]);
+    ]).join(", ");
   }
 }
 
 function newGame() {
+  let game = new Game();
   guesses.innerHTML = "";
   notifier.innerHTML = "";
-  return new Game();
+  hints.innerHTML = game.provideHint();
+  return game;
 }
 
 let game = newGame();
@@ -103,7 +106,16 @@ let game = newGame();
 newGameButton.addEventListener("click", () => {
   game = newGame();
 });
+
 submitButton.addEventListener("click", () => {
   let guess = Number(guessInput.value);
   game.playersGuessSubmission(guess);
+});
+
+hintButton.addEventListener("mouseover", () => {
+  hints.style.display = "block";
+});
+
+hintButton.addEventListener("mouseout", () => {
+  hints.style.display = "none";
 });
