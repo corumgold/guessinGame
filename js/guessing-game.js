@@ -3,6 +3,7 @@ let submitButton = document.getElementById("submit-guess");
 let hintButton = document.getElementById("hint");
 let guesses = document.getElementById("past-guesses");
 let notifier = document.getElementById("notifier");
+let guessInput = document.getElementById("guess-input");
 
 function generateWinningNumber() {
   return Math.floor(Math.random() * (100 - 1 + 1) + 1);
@@ -48,6 +49,7 @@ class Game {
       li.appendChild(document.createTextNode(`${this.playersGuess}`));
       guesses.appendChild(li);
       notifier.innerHTML = this.checkGuess();
+      guessInput.value = "";
     }
   }
 
@@ -93,6 +95,6 @@ newGameButton.addEventListener("click", () => {
   game = newGame();
 });
 submitButton.addEventListener("click", () => {
-  let guess = Number(document.getElementById("guess-input").value);
+  let guess = Number(guessInput.value);
   game.playersGuessSubmission(guess);
 });
