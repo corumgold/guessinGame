@@ -128,11 +128,11 @@ function newGame() {
 function winScreen() {
   guessInput.value = "";
   guessBlocks.style.color = "#2a9d8f";
-  document.getElementById("guess-1").innerHTML = "W";
-  document.getElementById("guess-2").innerHTML = "I";
-  document.getElementById("guess-3").innerHTML = "N";
-  document.getElementById("guess-4").innerHTML = ":";
-  document.getElementById("guess-5").innerHTML = ")";
+  document.getElementById("guess-1").innerHTML = "WI";
+  document.getElementById("guess-2").innerHTML = "NN";
+  document.getElementById("guess-3").innerHTML = "ER";
+  document.getElementById("guess-4").innerHTML = "!!";
+  document.getElementById("guess-5").innerHTML = ":-)";
   hintButton.style.display = "none";
   guessInput.style.display = "none";
   submitButton.style.display = "none";
@@ -142,11 +142,11 @@ function winScreen() {
 function loseScreen() {
   guessInput.value = "";
   guessBlocks.style.color = "#e76f51";
-  document.getElementById("guess-1").innerHTML = "L";
-  document.getElementById("guess-2").innerHTML = "O";
-  document.getElementById("guess-3").innerHTML = "S";
-  document.getElementById("guess-4").innerHTML = "E";
-  document.getElementById("guess-5").innerHTML = "!";
+  document.getElementById("guess-1").innerHTML = ":-(";
+  document.getElementById("guess-2").innerHTML = "TRY";
+  document.getElementById("guess-3").innerHTML = "AG";
+  document.getElementById("guess-4").innerHTML = "AIN";
+  document.getElementById("guess-5").innerHTML = "??";
   hintButton.style.display = "none";
   guessInput.style.display = "none";
   submitButton.style.display = "none";
