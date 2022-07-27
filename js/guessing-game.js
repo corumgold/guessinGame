@@ -164,6 +164,13 @@ submitButton.addEventListener("click", () => {
   game.playersGuessSubmission(guess);
 });
 
+guessInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    let guess = parseInt(guessInput.value);
+    game.playersGuessSubmission(guess);
+  }
+});
+
 hintButton.addEventListener("mouseover", () => {
   hints.style.display = "block";
 });
